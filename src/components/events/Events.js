@@ -5,10 +5,11 @@ import { Event } from './Event';
 
 export const Events = () => {
   const [{ events }] = useEventsFacade();
+
   return (
     <>
-      {events.map(({ name }) => (
-        <Event name={name} />
+      {events.map((event) => (
+        <Event key={event.id} event={event} />
       ))}
     </>
   );

@@ -11,7 +11,9 @@ interface EventState {
   error?: any;
 }
 
-export const useEventsFacade = (): [EventState, (id: ID) => void, (updated: Event) => void] => {
+export const useEventsFacade = (
+  id?: ID
+): [EventState, (id: ID) => void, (updated: Event) => void] => {
   const setActive = (id: ID) => eventsService.setActive(id);
   const updateActive = (updated: Event) => eventsService.updateActive(updated);
   const [state, setState] = useState<EventState>({
@@ -22,6 +24,7 @@ export const useEventsFacade = (): [EventState, (id: ID) => void, (updated: Even
 
   useEffect(() => {
     eventsService.loadMyEvents();
+    if (id) setActive(id);
 
     const subscriptions = [
       onEmit(eventsQuery.events$, (events) => setState((state) => ({ ...state, events }))),
@@ -33,7 +36,7 @@ export const useEventsFacade = (): [EventState, (id: ID) => void, (updated: Even
     return () => {
       subscriptions.map((it) => it.unsubscribe());
     };
-  }, []);
+  }, [id]);
 
   return [state, setActive, updateActive];
 };

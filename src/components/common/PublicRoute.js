@@ -3,8 +3,8 @@ import { Route, Redirect } from 'react-router-dom';
 
 import { useSessionFacade } from '../../hooks';
 
-export const PrivateRoute = ({ component: Component, to, ...rest }) => {
+export const PublicRoute = ({ component: Component, to, ...rest }) => {
   const [{ token }] = useSessionFacade();
 
-  return <Route {...rest} render={() => (token ? <Component /> : <Redirect to={to} />)} />;
+  return <Route {...rest} render={() => (token ? <Redirect to={to} /> : <Component />)} />;
 };

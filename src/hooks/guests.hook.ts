@@ -32,7 +32,7 @@ export const useGuestFacade = (id: ID): [UserState, (id: ID) => void] => {
     return () => {
       subscriptions.map((it) => it.unsubscribe());
     };
-  }, []);
+  }, [id]);
 
   return [state, setActive];
 };

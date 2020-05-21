@@ -1,11 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import { persistState } from '@datorama/akita';
+
+import { library } from '@fortawesome/fontawesome-svg-core';
+import {} from '@fortawesome/free-solid-svg-icons';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'modern-normalize/modern-normalize.css';
 
-import App from './App';
+import { App } from './App';
 import * as serviceWorker from './serviceWorker';
+
+library.add();
+persistState({ include: ['session'] });
 
 ReactDOM.render(
   <React.StrictMode>

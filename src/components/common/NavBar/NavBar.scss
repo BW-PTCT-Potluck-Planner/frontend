@@ -1,0 +1,19 @@
+@import '~variables';
+
+.navbar {
+  background-color: $primary;
+  color: white;
+
+  .spacer {
+    flex: 1;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    button.logout {
+      color: white;
+    }
+  }
+}

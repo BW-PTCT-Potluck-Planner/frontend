@@ -11,7 +11,9 @@ interface MenuState {
   error?: any;
 }
 
-export const useMenuFacade = (id: ID): [MenuState, (id: ID) => void, (updated: MenuItem) => void] => {
+export const useMenuFacade = (
+  id: ID
+): [MenuState, (id: ID) => void, (updated: MenuItem) => void] => {
   const setActive = (id: ID) => menuService.setActive(id);
   const updateActive = (updated: MenuItem) => menuService.updateActive(updated);
   const [state, setState] = useState<MenuState>({
@@ -33,7 +35,7 @@ export const useMenuFacade = (id: ID): [MenuState, (id: ID) => void, (updated: M
     return () => {
       subscriptions.map((it) => it.unsubscribe());
     };
-  }, []);
+  }, [id]);
 
   return [state, setActive, updateActive];
 };
