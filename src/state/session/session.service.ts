@@ -3,7 +3,6 @@ import { SessionQuery, sessionQuery } from './session.query';
 
 export class SessionService {
   constructor(private store: SessionStore, private query: SessionQuery) {
-    this.updateSession();
     this.query.select().subscribe(({ token }) => {
       localStorage.setItem('token', token);
     });
