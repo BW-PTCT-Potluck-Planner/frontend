@@ -24,6 +24,7 @@ export const useEventsFacade = (
 
   useEffect(() => {
     eventsService.loadMyEvents();
+    eventsService.setActive(null);
     if (id) setActive(id);
 
     const subscriptions = [

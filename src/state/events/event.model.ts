@@ -3,11 +3,11 @@ import cuid from 'cuid';
 
 export interface Event {
   id: ID;
-  name: string;
+  title: string;
 }
 
 export const createEvent = (item: Partial<Event>): Event => ({
   id: cuid(),
-  name: 'Untitled',
+  title: 'Untitled',
   ...item,
 });
