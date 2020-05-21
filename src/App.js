@@ -1,10 +1,18 @@
 import React from 'react';
-import { Events } from './components/events/Events';
+import { BrowserRouter as Router } from 'react-router-dom';
+import './App.scss';
+
+import { useSessionFacade } from './hooks';
+import { NavBar } from './components/common/NavBar/NavBar';
 
 const App = () => {
+  const [{ token }] = useSessionFacade();
+
   return (
     <>
-      <Events />
+      <Router>
+        <NavBar title="Potluck Planner" user={!!token} />
+      </Router>
     </>
   );
 };

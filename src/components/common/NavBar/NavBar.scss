@@ -1,0 +1,23 @@
+header {
+  display: flex;
+  padding: 0 8px;
+  background-color: dodgerblue;
+  color: white;
+
+  span {
+    font-size: xx-large;
+  }
+
+  .spacer {
+    flex: 1;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+
+    Button.logout {
+      color: white;
+    }
+  }
+}
