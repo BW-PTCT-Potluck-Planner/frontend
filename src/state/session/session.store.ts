@@ -5,7 +5,10 @@ export interface SessionState {
   name: string;
 }
 
-export const createInitialState = (): SessionState => ({ token: '', name: '' });
+export const createInitialState = (): SessionState => ({
+  token: localStorage.getItem('token') ?? '',
+  name: '',
+});
 
 @StoreConfig({ name: 'session' })
 export class SessionStore extends Store<SessionState> {
