@@ -1,5 +1,12 @@
 import { SessionStore, sessionStore } from './session.store';
 
+interface Registration {
+  username: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
 export class SessionService {
   constructor(private store: SessionStore) {}
 
@@ -16,6 +23,15 @@ export class SessionService {
 
   public logout(): void {
     this.store.update({ token: undefined, name: undefined });
+  }
+
+  public register(registration: Registration) {
+    console.log(registration);
+    this.store.update({ token: 'new' });
+  }
+
+  public validateUsername(username: string) {
+    return true;
   }
 }
 

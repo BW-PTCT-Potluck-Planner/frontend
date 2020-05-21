@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Button } from 'reactstrap';
 import './NavBar.scss';
 
@@ -8,9 +7,8 @@ import { sessionService } from '../../../state/session';
 export const NavBar = ({ title, loggedIn }) => {
   return (
     <Navbar>
-      <Link to="/">
-        <NavbarBrand>{title}</NavbarBrand>
-      </Link>
+      <NavbarBrand href="/">{title}</NavbarBrand>
+
       <div className="spacer"></div>
       {loggedIn && (
         <aside className="actions">
