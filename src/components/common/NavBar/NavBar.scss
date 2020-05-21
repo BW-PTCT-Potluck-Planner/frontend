@@ -1,7 +1,9 @@
+@import '~variables';
+
 header {
   display: flex;
   padding: 0 8px;
-  background-color: dodgerblue;
+  background-color: $primary;
   color: white;
 
   span {
