@@ -1,15 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Navbar, NavbarBrand, Button } from 'reactstrap';
 import './NavBar.scss';
 
 import { sessionService } from '../../../state/session';
 
 export const NavBar = ({ title, loggedIn }) => {
   return (
-    <header>
+    <Navbar>
       <Link to="/">
-        <span>{title}</span>
+        <NavbarBrand>{title}</NavbarBrand>
       </Link>
       <div className="spacer"></div>
       {loggedIn && (
@@ -19,6 +19,6 @@ export const NavBar = ({ title, loggedIn }) => {
           </Button>
         </aside>
       )}
-    </header>
+    </Navbar>
   );
 };

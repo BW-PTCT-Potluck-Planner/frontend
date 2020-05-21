@@ -1,14 +1,8 @@
 @import '~variables';
 
-header {
-  display: flex;
-  padding: 0 8px;
+.navbar {
   background-color: $primary;
   color: white;
-
-  span {
-    font-size: xx-large;
-  }
 
   .spacer {
     flex: 1;
@@ -18,7 +12,7 @@ header {
     display: flex;
     align-items: center;
 
-    Button.logout {
+    button.logout {
       color: white;
     }
   }
