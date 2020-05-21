@@ -1,16 +1,13 @@
 import { ID } from '@datorama/akita';
 import { useEffect, useState } from 'react';
-import { Observable } from 'rxjs';
 
 import { Event, eventsService, eventsQuery } from '../state/events';
+import { onEmit } from '../utils/onEmit';
 
 interface EventState {
   events: Event[];
   active: Event | null;
 }
-
-const onEmit = <T>(source$: Observable<T>, nextFn: (value: T) => void) =>
-  source$.subscribe(nextFn, console.error);
 
 export const useEventsFacade = (): [EventState, (id: ID) => void, (updated: Event) => void] => {
   const setActive = (id: ID) => eventsService.setActive(id);
