@@ -2,7 +2,7 @@ import { QueryEntity } from '@datorama/akita';
 import { MenuState, MenuStore, menuStore } from './menu.store';
 
 export class MenuQuery extends QueryEntity<MenuState> {
-  constructor(protected store: MenuStore) {
+  constructor(protected readonly store: MenuStore) {
     super(store);
   }
 

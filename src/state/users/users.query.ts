@@ -3,7 +3,7 @@ import { QueryEntity } from '@datorama/akita';
 import { UserState, UserStore, userStore } from './users.store';
 
 export class UsersQuery extends QueryEntity<UserState> {
-  constructor(protected store: UserStore) {
+  constructor(protected readonly store: UserStore) {
     super(store);
   }
 

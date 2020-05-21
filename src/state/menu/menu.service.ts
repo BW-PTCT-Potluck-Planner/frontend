@@ -4,7 +4,7 @@ import { menuStore, MenuStore } from './menu.store';
 import { MenuItem, createMenuItem } from './menu-item.model';
 
 export class MenuService {
-  constructor(private store: MenuStore) {}
+  constructor(private readonly store: MenuStore) {}
 
   public loadMenu(id: ID): void {
     this.store.setError(undefined);
@@ -18,16 +18,16 @@ export class MenuService {
     this.store.setActive(id);
   }
 
-  public updateActive(updated: MenuItem) {
+  public updateActive(updated: MenuItem): void {
     this.store.updateActive(updated);
   }
 
-  public add() {
+  public add(): void {
     const item = createMenuItem({});
     this.store.add(item);
   }
 
-  public delete(id: ID) {
+  public delete(id: ID): void {
     this.store.remove(id);
   }
 }

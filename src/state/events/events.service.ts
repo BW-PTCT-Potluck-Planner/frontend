@@ -5,7 +5,7 @@ import { createEvent, Event } from './event.model';
 import { EventsQuery, eventsQuery } from './events.query';
 
 export class EventsService {
-  constructor(private store: EventsStore, private query: EventsQuery) {}
+  constructor(private readonly store: EventsStore, private readonly query: EventsQuery) {}
 
   public loadMyEvents(): void {
     this.store.setError(undefined);
