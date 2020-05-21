@@ -4,10 +4,6 @@ import { Event } from './event.model';
 export interface EventsState extends ActiveState, EntityState<Event> {}
 
 @StoreConfig({ name: 'events' })
-export class EventsStore extends EntityStore<EventsState> {
-  constructor() {
-    super();
-  }
-}
+export class EventsStore extends EntityStore<EventsState> {}
 
 export const eventsStore = new EventsStore();

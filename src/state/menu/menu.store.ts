@@ -4,10 +4,6 @@ import { MenuItem } from './menu-item.model';
 export interface MenuState extends ActiveState, EntityState<MenuItem> {}
 
 @StoreConfig({ name: 'menu' })
-export class MenuStore extends EntityStore<MenuState> {
-  constructor() {
-    super();
-  }
-}
+export class MenuStore extends EntityStore<MenuState> {}
 
 export const menuStore = new MenuStore();
