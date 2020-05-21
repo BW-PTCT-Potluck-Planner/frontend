@@ -11,7 +11,7 @@ import { PrivateRoute } from './components/common/PrivateRoute';
 import { Events } from './components/events/Events';
 import { Login } from './components/onboarding/Login';
 
-const App = () => {
+export const App = () => {
   const [{ token }] = useSessionFacade();
 
   return (
@@ -26,5 +26,3 @@ const App = () => {
     </>
   );
 };
-
-export default App;
