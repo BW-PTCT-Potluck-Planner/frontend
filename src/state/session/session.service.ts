@@ -1,4 +1,7 @@
+import axios from 'axios-observable';
+
 import { SessionStore, sessionStore } from './session.store';
+import { SessionQuery, sessionQuery } from './session.query';
 
 interface Registration {
   username: string;
@@ -8,7 +11,11 @@ interface Registration {
 }
 
 export class SessionService {
-  constructor(private readonly store: SessionStore) {}
+  constructor(private readonly store: SessionStore, private readonly query: SessionQuery) {
+    this.query
+      .select('token')
+      .subscribe((Authorization) => (axios.defaults.headers = { Authorization }));
+  }
 
   public updateSession(): void {
     this.store.setError(undefined);
@@ -22,7 +29,7 @@ export class SessionService {
   }
 
   public logout(): void {
-    this.store.update({ token: undefined, name: undefined });
+    this.store.update({ token: '', name: '' });
   }
 
   public register(registration: Registration) {
@@ -35,4 +42,4 @@ export class SessionService {
   }
 }
 
-export const sessionService = new SessionService(sessionStore);
+export const sessionService = new SessionService(sessionStore, sessionQuery);
