@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
-import { SessionState as Session, sessionQuery, sessionService } from '../state/session';
-import { onEmit } from '../utils/onEmit';
+import { SessionState as Session, sessionQuery, sessionService } from 'state';
+import { onEmit } from 'utils';
 
 interface SessionState extends Session {
   loading: boolean;

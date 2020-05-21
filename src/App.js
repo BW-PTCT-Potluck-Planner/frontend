@@ -1,18 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 
-import { useSessionFacade } from './hooks';
-
-import { NavBar } from './components/common/NavBar/NavBar';
-import { PublicRoute } from './components/common/PublicRoute';
-import { PrivateRoute } from './components/common/PrivateRoute';
-
-import { Events } from './components/events/Events';
-import { EventDetails } from './components/events/EventDetails';
-import { EventEdit } from './components/events/EventEdit';
-
-import { Login } from './components/onboarding/Login/Login';
-import { Register } from './components/onboarding/Register/Register';
+import { useSessionFacade } from 'hooks';
+import { NavBar, PublicRoute, PrivateRoute } from 'components/common';
+import { Events, EventDetails, EventEdit } from 'components/events';
+import { Login, Register } from 'components/onboarding';
 
 export const App = () => {
   const [{ token }] = useSessionFacade();

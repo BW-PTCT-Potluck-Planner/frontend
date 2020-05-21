@@ -1,8 +1,8 @@
 import { ID } from '@datorama/akita';
 import { useEffect, useState } from 'react';
 
-import { User, userService, usersQuery } from '../state/users';
-import { onEmit } from '../utils/onEmit';
+import { User, userService, usersQuery } from 'state';
+import { onEmit } from 'utils';
 
 interface UserState {
   guests: User[];

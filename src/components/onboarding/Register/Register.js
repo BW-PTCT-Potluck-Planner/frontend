@@ -4,7 +4,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, FormFeedback, FormGroup, FormText, Label, Input, Button } from 'reactstrap';
 
-import { sessionService } from '../../../state/session';
+import { sessionService } from 'state';
 
 export const Register = () => {
   const { register, handleSubmit, getValues, errors } = useForm({ mode: 'onBlur' });

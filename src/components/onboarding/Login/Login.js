@@ -4,7 +4,7 @@ import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-import { sessionService } from '../../../state/session';
+import { sessionService } from 'state';
 
 export const Login = () => {
   // Use react-form-hook to keep things simple

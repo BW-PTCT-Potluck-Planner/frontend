@@ -1,8 +1,10 @@
+import './EventDetails.scss';
+
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Spinner, Button } from 'reactstrap';
 
-import { useEventsFacade } from '../../hooks';
+import { useEventsFacade } from 'hooks';
 
 export const EventDetails = () => {
   const { id } = useParams();
