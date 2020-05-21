@@ -4,9 +4,7 @@ import { eventsStore, EventsStore } from './events.store';
 import { createEvent, Event } from './event.model';
 
 export class EventsService {
-  constructor(private store: EventsStore) {
-    this.loadAll();
-  }
+  constructor(private store: EventsStore) {}
 
   public loadAll(): void {
     const items: Event[] = [

@@ -4,9 +4,7 @@ import { menuStore, MenuStore } from './menu.store';
 import { MenuItem, createMenuItem } from './menu-item.model';
 
 export class MenuService {
-  constructor(private store: MenuStore) {
-    this.loadAll();
-  }
+  constructor(private store: MenuStore) {}
 
   public loadAll(): void {
     const items: MenuItem[] = [{ id: '1' }, { id: '2' }];

@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
-import { Observable } from 'rxjs';
 
 import { SessionState, sessionQuery, sessionService } from '../state/session';
-
-const onEmit = <T>(source$: Observable<T>, nextFn: (value: T) => void) =>
-  source$.subscribe(nextFn, console.error);
+import { onEmit } from '../utils/onEmit';
 
 export const useSessionFacade = (): [SessionState] => {
   const [state, setState] = useState<SessionState>(sessionQuery.getValue());
