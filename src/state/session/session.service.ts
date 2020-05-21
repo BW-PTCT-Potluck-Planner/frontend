@@ -3,14 +3,14 @@ import { SessionQuery, sessionQuery } from './session.query';
 
 export class SessionService {
   constructor(private store: SessionStore, private query: SessionQuery) {
-    this.init();
-  }
-
-  public init(): void {
-    this.store.update({});
+    this.updateSession();
     this.query.select().subscribe(({ token }) => {
       localStorage.setItem('token', token);
     });
+  }
+
+  public updateSession(): void {
+    this.store.update({});
   }
 }
 
