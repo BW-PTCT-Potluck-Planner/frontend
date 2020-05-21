@@ -9,7 +9,16 @@ export class SessionService {
   }
 
   public updateSession(): void {
+    this.store.setError(undefined);
+    this.store.setLoading(true);
     this.store.update({});
+    this.store.setLoading(false);
+  }
+
+  public login(): void {}
+
+  public logout(): void {
+    this.store.update({ token: undefined, name: undefined });
   }
 }
 

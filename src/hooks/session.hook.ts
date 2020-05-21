@@ -1,16 +1,26 @@
 import { useEffect, useState } from 'react';
 
-import { SessionState, sessionQuery, sessionService } from '../state/session';
+import { SessionState as Session, sessionQuery, sessionService } from '../state/session';
 import { onEmit } from '../utils/onEmit';
 
+interface SessionState extends Session {
+  loading: boolean;
+  error?: any;
+}
+
 export const useSessionFacade = (): [SessionState] => {
-  const [state, setState] = useState<SessionState>(sessionQuery.getValue());
+  const [state, setState] = useState<SessionState>({
+    ...sessionQuery.getValue(),
+    loading: true,
+  });
 
   useEffect(() => {
     sessionService.updateSession();
 
     const subscriptions = [
-      onEmit(sessionQuery.select(), (user) => setState((state) => ({ ...state, user }))),
+      onEmit(sessionQuery.session$, (session) => setState((state) => ({ ...state, ...session }))),
+      onEmit(sessionQuery.loading$, (loading) => setState((state) => ({ ...state, loading }))),
+      onEmit(sessionQuery.error$, (error) => setState((state) => ({ ...state, error }))),
     ];
 
     return () => {

@@ -8,6 +8,8 @@ export class MenuQuery extends QueryEntity<MenuState> {
 
   public menu$ = this.selectAll();
   public active$ = this.selectActive();
+  public loading$ = this.selectLoading();
+  public error$ = this.selectError();
 }
 
 export const menuQuery = new MenuQuery(menuStore);

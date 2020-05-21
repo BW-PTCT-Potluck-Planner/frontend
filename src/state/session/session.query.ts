@@ -5,6 +5,10 @@ export class SessionQuery extends Query<SessionState> {
   constructor(protected store: SessionStore) {
     super(store);
   }
+
+  public session$ = this.select();
+  public loading$ = this.selectLoading();
+  public error$ = this.selectError();
 }
 
 export const sessionQuery = new SessionQuery(sessionStore);
