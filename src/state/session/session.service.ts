@@ -10,7 +10,9 @@ export class SessionService {
     this.store.setLoading(false);
   }
 
-  public login(): void {}
+  public login(): void {
+    this.store.update({ token: 'placeholder' });
+  }
 
   public logout(): void {
     this.store.update({ token: undefined, name: undefined });
