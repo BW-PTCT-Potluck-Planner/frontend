@@ -1,4 +1,5 @@
 import axios from 'axios-observable';
+import { switchMap, filter } from 'rxjs/operators';
 
 import { SessionStore, sessionStore } from './session.store';
 import { SessionQuery, sessionQuery } from './session.query';
@@ -12,9 +13,23 @@ interface Registration {
 
 export class SessionService {
   constructor(private readonly store: SessionStore, private readonly query: SessionQuery) {
+    this.effects();
+  }
+
+  private effects(): void {
     this.query
       .select('token')
       .subscribe((Authorization) => (axios.defaults.headers = { Authorization }));
+
+    this.query
+      .select('token')
+      .pipe(
+        filter((token) => !!token),
+        switchMap(() => axios.get('/profile'))
+      )
+      .subscribe(({ data }) => {
+        this.store.update({ ...data });
+      });
   }
 
   public updateSession(): void {

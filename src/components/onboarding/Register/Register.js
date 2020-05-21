@@ -1,7 +1,8 @@
+import './Register.scss';
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, FormFeedback, FormGroup, FormText, Label, Input, Button } from 'reactstrap';
-import './Register.scss';
 
 import { sessionService } from '../../../state/session';
 
