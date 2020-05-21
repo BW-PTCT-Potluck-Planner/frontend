@@ -36,7 +36,7 @@ export const useEventsFacade = (
     return () => {
       subscriptions.map((it) => it.unsubscribe());
     };
-  }, []);
+  }, [id]);
 
   return [state, setActive, updateActive];
 };
