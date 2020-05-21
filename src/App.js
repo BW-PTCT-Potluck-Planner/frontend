@@ -11,7 +11,7 @@ import { Events } from './components/events/Events';
 import { EventDetails } from './components/events/EventDetails';
 import { EventEdit } from './components/events/EventEdit';
 
-import { Login } from './components/onboarding/Login';
+import { Login } from './components/onboarding/Login/Login';
 import { Register } from './components/onboarding/Register/Register';
 
 export const App = () => {
