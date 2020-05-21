@@ -8,6 +8,8 @@ export class EventsQuery extends QueryEntity<EventsState> {
 
   public events$ = this.selectAll();
   public active$ = this.selectActive();
+  public loading$ = this.selectLoading();
+  public error$ = this.selectError();
 }
 
 export const eventsQuery = new EventsQuery(eventsStore);

@@ -7,11 +7,14 @@ export class EventsService {
   constructor(private store: EventsStore) {}
 
   public loadAll(): void {
+    this.store.setError(undefined);
+    this.store.setLoading(true);
     const items: Event[] = [
       { id: '1', name: 'Birthday' },
       { id: '2', name: 'Block Party' },
     ];
     this.store.set(items);
+    this.store.setLoading(false);
   }
 
   public setActive(id: ID): void {

@@ -7,11 +7,14 @@ export class UserService {
   constructor(private store: UserStore) {}
 
   public loadAll(): void {
+    this.store.setError(undefined);
+    this.store.setLoading(true);
     const items: User[] = [
       { id: '1', name: 'Sam' },
       { id: '2', name: 'John' },
     ];
     this.store.set(items);
+    this.store.setLoading(false);
   }
 
   public setActive(id: ID): void {

@@ -7,12 +7,18 @@ import { onEmit } from '../utils/onEmit';
 interface EventState {
   events: Event[];
   active: Event | null;
+  loading: boolean;
+  error?: any;
 }
 
 export const useEventsFacade = (): [EventState, (id: ID) => void, (updated: Event) => void] => {
   const setActive = (id: ID) => eventsService.setActive(id);
   const updateActive = (updated: Event) => eventsService.updateActive(updated);
-  const [state, setState] = useState<EventState>({ events: [], active: null });
+  const [state, setState] = useState<EventState>({
+    events: [],
+    active: null,
+    loading: true,
+  });
 
   useEffect(() => {
     eventsService.loadAll();
@@ -20,6 +26,8 @@ export const useEventsFacade = (): [EventState, (id: ID) => void, (updated: Even
     const subscriptions = [
       onEmit(eventsQuery.events$, (events) => setState((state) => ({ ...state, events }))),
       onEmit(eventsQuery.active$, (active) => setState((state) => ({ ...state, active }))),
+      onEmit(eventsQuery.loading$, (loading) => setState((state) => ({ ...state, loading }))),
+      onEmit(eventsQuery.error$, (error) => setState((state) => ({ ...state, error }))),
     ];
 
     return () => {

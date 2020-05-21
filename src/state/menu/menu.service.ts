@@ -7,8 +7,11 @@ export class MenuService {
   constructor(private store: MenuStore) {}
 
   public loadAll(): void {
+    this.store.setError(undefined);
+    this.store.setLoading(true);
     const items: MenuItem[] = [{ id: '1' }, { id: '2' }];
     this.store.set(items);
+    this.store.setLoading(false);
   }
 
   public setActive(id: ID): void {
