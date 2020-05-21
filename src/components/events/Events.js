@@ -7,8 +7,8 @@ export const Events = () => {
   const [{ events }] = useEventsFacade();
   return (
     <>
-      {events.map(({ name }) => (
-        <Event name={name} />
+      {events.map(({ id, name }) => (
+        <Event key={id} name={name} />
       ))}
     </>
   );
