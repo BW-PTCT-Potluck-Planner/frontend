@@ -2,7 +2,7 @@ import { Query } from '@datorama/akita';
 import { SessionState, SessionStore, sessionStore } from './session.store';
 
 export class SessionQuery extends Query<SessionState> {
-  constructor(protected store: SessionStore) {
+  constructor(protected readonly store: SessionStore) {
     super(store);
   }
 

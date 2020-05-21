@@ -4,7 +4,7 @@ import { menuStore, MenuStore } from './menu.store';
 import { MenuItem, createMenuItem } from './menu-item.model';
 
 export class MenuService {
-  constructor(private store: MenuStore) {}
+  constructor(private readonly store: MenuStore) {}
 
   public loadMenu(id: ID): void {
     this.store.setError(undefined);

@@ -8,7 +8,7 @@ interface Registration {
 }
 
 export class SessionService {
-  constructor(private store: SessionStore) {}
+  constructor(private readonly store: SessionStore) {}
 
   public updateSession(): void {
     this.store.setError(undefined);

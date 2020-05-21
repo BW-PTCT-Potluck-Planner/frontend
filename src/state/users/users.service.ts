@@ -4,7 +4,7 @@ import { userStore, UserStore } from './users.store';
 import { createUser, User } from './user.model';
 
 export class UserService {
-  constructor(private store: UserStore) {}
+  constructor(private readonly store: UserStore) {}
 
   public loadGuest(id: ID): void {
     this.store.setError(undefined);
