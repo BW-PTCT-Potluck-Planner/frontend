@@ -1,10 +1,9 @@
+import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-export const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      localStorage.getItem('token') ? <Component {...props} /> : <Redirect to="/login" />
-    }
-  />
-);
+import { useSessionFacade } from '../../hooks';
+
+export const PrivateRoute = ({ component: Component, to, ...rest }) => {
+  const [{ token }] = useSessionFacade();
+  return <Route {...rest} render={() => (token ? <Component /> : <Redirect to={to} />)} />;
+};
