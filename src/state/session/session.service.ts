@@ -1,12 +1,7 @@
 import { SessionStore, sessionStore } from './session.store';
-import { SessionQuery, sessionQuery } from './session.query';
 
 export class SessionService {
-  constructor(private store: SessionStore, private query: SessionQuery) {
-    this.query.select().subscribe(({ token }) => {
-      localStorage.setItem('token', token);
-    });
-  }
+  constructor(private store: SessionStore) {}
 
   public updateSession(): void {
     this.store.setError(undefined);
@@ -22,4 +17,4 @@ export class SessionService {
   }
 }
 
-export const sessionService = new SessionService(sessionStore, sessionQuery);
+export const sessionService = new SessionService(sessionStore);
