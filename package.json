@@ -10,6 +10,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.5.0",
     "cuid": "^2.1.8",
+    "jquery": "^3.5.1",
     "modern-normalize": "^0.6.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -40,6 +41,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.5",
     "typescript": "^3.9.3"
   }
 }
