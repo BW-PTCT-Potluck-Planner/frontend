@@ -1,0 +1,17 @@
+@import '~variables';
+
+main {
+  display: flex;
+  height: 100%;
+  flex-flow: column;
+  margin: spacing(1);
+
+  form {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-self: center;
+    width: 600px;
+    max-width: 100%;
+  }
+}

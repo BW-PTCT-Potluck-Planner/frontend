@@ -6,4 +6,9 @@ $pale-silver: #c1b4ae;
 
 $primary: $copper;
 $secondary: $jet;
-$error: $dark-red;
+$danger: $dark-red;
+
+@function spacing($mult) {
+  $base: 8;
+  @return $mult * $base * 1px;
+}

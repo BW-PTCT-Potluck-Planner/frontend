@@ -1,0 +1,22 @@
+@import '~modern-normalize/modern-normalize.css';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~variables';
+
+$theme-colors: (
+  primary: $primary,
+  secondary: $secondary,
+  danger: $danger,
+);
+
+@import 'bootstrap';
+
+a,
+a:hover {
+  color: unset;
+  text-decoration: unset;
+}
+
+#root {
+  height: 100vh;
+}
