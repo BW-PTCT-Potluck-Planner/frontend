@@ -21,7 +21,7 @@ export const useEventsFacade = (): [EventState, (id: ID) => void, (updated: Even
   });
 
   useEffect(() => {
-    eventsService.loadAll();
+    eventsService.loadMyEvents();
 
     const subscriptions = [
       onEmit(eventsQuery.events$, (events) => setState((state) => ({ ...state, events }))),

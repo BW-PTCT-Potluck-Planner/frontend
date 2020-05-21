@@ -6,7 +6,7 @@ import { createEvent, Event } from './event.model';
 export class EventsService {
   constructor(private store: EventsStore) {}
 
-  public loadAll(): void {
+  public loadMyEvents(): void {
     this.store.setError(undefined);
     this.store.setLoading(true);
     const items: Event[] = [

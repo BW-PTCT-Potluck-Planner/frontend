@@ -14,6 +14,12 @@ export class SessionService {
     this.store.update({});
     this.store.setLoading(false);
   }
+
+  public login(): void {}
+
+  public logout(): void {
+    this.store.update({ token: undefined, name: undefined });
+  }
 }
 
 export const sessionService = new SessionService(sessionStore, sessionQuery);

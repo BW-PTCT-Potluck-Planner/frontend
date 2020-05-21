@@ -6,7 +6,7 @@ import { createUser, User } from './user.model';
 export class UserService {
   constructor(private store: UserStore) {}
 
-  public loadAll(): void {
+  public loadGuest(id: ID): void {
     this.store.setError(undefined);
     this.store.setLoading(true);
     const items: User[] = [

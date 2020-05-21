@@ -6,21 +6,25 @@ import { onEmit } from '../utils/onEmit';
 
 interface UserState {
   guests: User[];
+  active: User | null;
   loading: boolean;
   error?: any;
 }
 
-export const useGuestFacade = (id: ID): [UserState] => {
+export const useGuestFacade = (id: ID): [UserState, (id: ID) => void] => {
+  const setActive = (id: ID) => userService.setActive(id);
   const [state, setState] = useState<UserState>({
     guests: [],
+    active: null,
     loading: true,
   });
 
   useEffect(() => {
-    userService.loadAll();
+    userService.loadGuest(id);
 
     const subscriptions = [
-      onEmit(usersQuery.selectGuest(id), (guests) => setState((state) => ({ ...state, guests }))),
+      onEmit(usersQuery.users$, (guests) => setState((state) => ({ ...state, guests }))),
+      onEmit(usersQuery.active$, (active) => setState((state) => ({ ...state, active }))),
       onEmit(usersQuery.loading$, (loading) => setState((state) => ({ ...state, loading }))),
       onEmit(usersQuery.error$, (error) => setState((state) => ({ ...state, error }))),
     ];
@@ -30,5 +34,5 @@ export const useGuestFacade = (id: ID): [UserState] => {
     };
   }, []);
 
-  return [state];
+  return [state, setActive];
 };
