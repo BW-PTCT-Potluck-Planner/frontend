@@ -1,6 +1,6 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Spinner } from 'reactstrap';
+import { useParams, Link } from 'react-router-dom';
+import { Spinner, Button } from 'reactstrap';
 
 import { useEventsFacade } from '../../hooks';
 
@@ -10,5 +10,12 @@ export const EventDetails = () => {
 
   if (loading) return <Spinner color="primary" />;
 
-  return <>{active.name}</>;
+  return (
+    <>
+      <h3>{active.title}</h3>
+      <Link to={`/event/${id}/edit`}>
+        <Button>Edit</Button>
+      </Link>
+    </>
+  );
 };

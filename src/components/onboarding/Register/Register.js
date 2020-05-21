@@ -17,9 +17,9 @@ export const Register = () => {
             Email
           </Label>
           <Input
-            type="email"
-            name="email"
             id="email"
+            name="email"
+            type="email"
             placeholder="Email"
             innerRef={register({
               required: 'A email is required',
@@ -38,9 +38,9 @@ export const Register = () => {
             Username
           </Label>
           <Input
-            type="text"
-            name="username"
             id="username"
+            name="username"
+            type="text"
             placeholder="Username"
             innerRef={register({
               required: 'Username is required',
@@ -56,9 +56,9 @@ export const Register = () => {
             Password
           </Label>
           <Input
-            type="password"
-            name="password"
             id="password"
+            name="password"
+            type="password"
             placeholder="Password"
             innerRef={register({
               required: 'Password is required',
@@ -74,9 +74,9 @@ export const Register = () => {
             Password
           </Label>
           <Input
-            type="password"
-            name="confirmPassword"
             id="confirmPassword"
+            name="confirmPassword"
+            type="password"
             placeholder="Confirm Password"
             innerRef={register({
               required: 'Please confirm your password',
