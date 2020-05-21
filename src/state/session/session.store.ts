@@ -1,12 +1,14 @@
-import { Store, StoreConfig } from '@datorama/akita';
+import { Store, StoreConfig, ID } from '@datorama/akita';
 
 export interface SessionState {
+  id: ID;
   token: string;
   name: string;
 }
 
 export const createInitialState = (): SessionState => ({
   token: localStorage.getItem('token') ?? '',
+  id: -1,
   name: '',
 });
 

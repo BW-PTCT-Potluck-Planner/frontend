@@ -50,7 +50,7 @@ export class SessionService {
   }
 
   public logout(): void {
-    this.store.update({ token: '', name: '' });
+    this.store.update({ token: '', id: -1, name: '' });
   }
 
   public register(registration: Registration): void {
