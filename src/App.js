@@ -11,7 +11,7 @@ import { Events } from './components/events/Events';
 import { EventDetails } from './components/events/EventDetails';
 
 import { Login } from './components/onboarding/Login';
-import { Register } from './components/onboarding/Register';
+import { Register } from './components/onboarding/Register/Register';
 
 export const App = () => {
   const [{ token }] = useSessionFacade();
