@@ -32,12 +32,12 @@ export class SessionService {
     this.store.update({ token: '', name: '' });
   }
 
-  public register(registration: Registration) {
+  public register(registration: Registration): void {
     console.log(registration);
     this.store.update({ token: 'new' });
   }
 
-  public validateUsername(username: string) {
+  public validateUsername(username: string): boolean {
     return true;
   }
 }

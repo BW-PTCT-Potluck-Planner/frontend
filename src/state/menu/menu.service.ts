@@ -18,16 +18,16 @@ export class MenuService {
     this.store.setActive(id);
   }
 
-  public updateActive(updated: MenuItem) {
+  public updateActive(updated: MenuItem): void {
     this.store.updateActive(updated);
   }
 
-  public add() {
+  public add(): void {
     const item = createMenuItem({});
     this.store.add(item);
   }
 
-  public delete(id: ID) {
+  public delete(id: ID): void {
     this.store.remove(id);
   }
 }
