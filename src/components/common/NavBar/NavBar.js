@@ -6,7 +6,7 @@ import { sessionService } from '../../../state/session';
 
 export const NavBar = ({ title, loggedIn }) => {
   return (
-    <Navbar>
+    <Navbar color="primary">
       <NavbarBrand href="/">{title}</NavbarBrand>
 
       <div className="spacer"></div>
