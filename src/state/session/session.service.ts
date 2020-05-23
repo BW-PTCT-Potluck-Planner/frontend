@@ -4,6 +4,11 @@ import { switchMap, filter } from 'rxjs/operators';
 import { SessionStore, sessionStore } from './session.store';
 import { SessionQuery, sessionQuery } from './session.query';
 
+interface Authentication {
+  username: string;
+  password: string;
+}
+
 interface Registration {
   username: string;
   email: string;
@@ -39,12 +44,13 @@ export class SessionService {
     this.store.setLoading(false);
   }
 
-  public login(): void {
+  public login(authentication: Authentication): void {
+    console.log(authentication);
     this.store.update({ token: 'placeholder' });
   }
 
   public logout(): void {
-    this.store.update({ token: '', name: '' });
+    this.store.update({ token: '', id: -1, name: '' });
   }
 
   public register(registration: Registration): void {

@@ -4,7 +4,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Form, FormFeedback, FormGroup, FormText, Label, Input, Button } from 'reactstrap';
 
-import { sessionService } from '../../../state/session';
+import { sessionService } from 'state';
 
 export const Register = () => {
   const { register, handleSubmit, getValues, errors } = useForm({ mode: 'onBlur' });
@@ -14,9 +14,7 @@ export const Register = () => {
       <h6>Create an account</h6>
       <Form onSubmit={handleSubmit((user) => sessionService.register(user))}>
         <FormGroup>
-          <Label for="email" hidden>
-            Email
-          </Label>
+          <Label for="email">Email</Label>
           <Input
             id="email"
             name="email"
@@ -35,9 +33,7 @@ export const Register = () => {
           <FormText>ie: example@gmail.com</FormText>
         </FormGroup>
         <FormGroup>
-          <Label for="confirmPassword" hidden>
-            Username
-          </Label>
+          <Label for="confirmPassword">Username</Label>
           <Input
             id="username"
             name="username"
@@ -53,9 +49,7 @@ export const Register = () => {
           <FormText>Must be unique</FormText>
         </FormGroup>
         <FormGroup>
-          <Label for="password" hidden>
-            Password
-          </Label>
+          <Label for="password">Password</Label>
           <Input
             id="password"
             name="password"
@@ -71,9 +65,7 @@ export const Register = () => {
           <FormText>At least 6 characters long</FormText>
         </FormGroup>
         <FormGroup>
-          <Label for="confirmPassword" hidden>
-            Password
-          </Label>
+          <Label for="confirmPassword">Confirm Password</Label>
           <Input
             id="confirmPassword"
             name="confirmPassword"

@@ -1,9 +1,11 @@
-import React from 'react';
+import './Events.scss';
 
-import { useEventsFacade } from '../../hooks';
-import { Event } from './Event';
+import React from 'react';
 import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
+
+import { useEventsFacade } from 'hooks';
+import { Event } from '../Event/Event';
 
 export const Events = () => {
   const [{ events }] = useEventsFacade();

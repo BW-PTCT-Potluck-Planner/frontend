@@ -1,8 +1,8 @@
 import { ID } from '@datorama/akita';
 import { useEffect, useState } from 'react';
 
-import { Event, eventsService, eventsQuery } from '../state/events';
-import { onEmit } from '../utils/onEmit';
+import { Event, eventsService, eventsQuery } from 'state';
+import { onEmit } from 'utils';
 
 interface EventState {
   events: Event[];

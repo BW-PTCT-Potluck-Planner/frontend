@@ -1,10 +1,12 @@
+import './EventEdit.scss';
+
 import React, { useEffect } from 'react';
 import { useParams, useHistory } from 'react-router';
 import { useForm } from 'react-hook-form';
 import { Form, FormFeedback, FormGroup, Label, Input, Button } from 'reactstrap';
 
-import { useEventsFacade } from '../../hooks';
-import { eventsService } from '../../state/events';
+import { useEventsFacade } from 'hooks';
+import { eventsService } from 'state';
 
 export const EventEdit = () => {
   const history = useHistory();
