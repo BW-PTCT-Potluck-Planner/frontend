@@ -5,18 +5,13 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { sessionService } from './../../state/session';
 
-const schema = yup.object().shape({
-  email: yup.string().email().required("Email is required"),
-  password: yup.string().required("Password is required")
-});
 
 
 
 export const Login = () => {
   
-  const { register, handleSubmit, errors } = useForm({
-    validationSchema: schema
-  });
+  const { register, handleSubmit, errors } = useForm();
+  
   const onSubmit = data => console.log(data);
 
   
@@ -25,28 +20,28 @@ export const Login = () => {
     
     <Form onSubmit = {handleSubmit(onSubmit)}>
       
-      <Label html for = "email" >Email</Label>
+      <Label>Email</Label>
       <Input
        name = "email"
        placeholder = "Email"
-       type = "email"
-       ref = {register}
+       type = "text"
+       ref = {register({required: true})}
        
       />
-      {errors.email && <p>{errors.email.message}</p>}
+      {errors.email && <p>Email is required</p>}
       
 
-      <Label html for = "password">Password</Label>
+      <Label>Password</Label>
       <Input
        name ="password"
        placeholder = "Password"
        type = "password"
-       ref = {register}
+       ref = {register({required: true, minLength: 8})}
       />
-      {errors.email && <p>{errors.email.message}</p>}
+      {errors.password && <p>Password is required</p>}
     
     
-      <Button onClick={() => sessionService.login()}>Login</Button>
+      <button onClick={() => sessionService.login()}>Login</button>
       <div >
       <Link to="/register">No account? Sign Up!</Link>
       </div>
