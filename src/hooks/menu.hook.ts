@@ -1,8 +1,8 @@
 import { ID } from '@datorama/akita';
 import { useEffect, useState } from 'react';
 
-import { MenuItem, menuQuery, menuService } from '../state/menu';
-import { onEmit } from '../utils/onEmit';
+import { MenuItem, menuQuery, menuService } from 'state';
+import { onEmit } from 'utils';
 
 interface MenuState {
   menu: MenuItem[];
