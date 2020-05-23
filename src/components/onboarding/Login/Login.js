@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Form, Input, Label } from 'reactstrap';
+import { Button, Form, FormFeedback, Input, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -13,23 +13,27 @@ export const Login = () => {
   return (
     <main>
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Label>Email</Label>
+        <Label for="email">Email</Label>
         <Input
+          id="email"
           name="email"
-          placeholder="Email"
+          placeholder="example@gmail.com"
           type="text"
-          innerRef={register({ required: true })}
+          innerRef={register({ required: 'Please enter your email' })}
+          invalid={!!errors.email}
         />
-        {errors.email && <p>Email is required</p>}
+        <FormFeedback>{errors.email?.message}</FormFeedback>
 
-        <Label>Password</Label>
+        <Label for="password">Password</Label>
         <Input
+          id="password"
           name="password"
           placeholder="Password"
           type="password"
-          innerRef={register({ required: true })}
+          innerRef={register({ required: 'Please enter your password' })}
+          invalid={!!errors.password}
         />
-        {errors.password && <p>Password is required</p>}
+        <FormFeedback>{errors.password?.message}</FormFeedback>
 
         <Button>Login</Button>
         <div>
