@@ -4,7 +4,7 @@ import axios from 'axios-observable';
 import { eventsStore, EventsStore } from './events.store';
 import { createEvent, Event } from './event.model';
 import { tap, catchError, map } from 'rxjs/operators';
-import { of, Observable } from 'rxjs';
+import { of, Observable, EMPTY } from 'rxjs';
 
 export class EventsService {
   constructor(private readonly store: EventsStore) {}
@@ -20,7 +20,7 @@ export class EventsService {
         this.store.setLoading(false);
       }),
       catchError((err) => {
-        this.store.setError(err);
+        this.store.setError(err.toString());
         this.store.setLoading(false);
         return of([] as Event[]);
       })
@@ -38,16 +38,28 @@ export class EventsService {
   }
 
   public create(event: Partial<Event>): Observable<Event> {
+    this.store.setError(undefined);
+    this.store.setLoading(true);
     return axios.post<Event>('/events', createEvent(event)).pipe(
       map(({ data }) => data),
       tap((event) => {
+        this.store.setLoading(false);
         this.store.add(event);
+      }),
+      catchError((err) => {
+        this.store.setLoading(false);
+        this.store.setError(err.toString());
+        return EMPTY;
       })
     );
   }
 
   public delete(id: ID): void {
     this.store.remove(id);
+  }
+
+  public clearError(): void {
+    this.store.setError(undefined);
   }
 }
 

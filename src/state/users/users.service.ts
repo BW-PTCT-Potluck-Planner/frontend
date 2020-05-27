@@ -33,6 +33,10 @@ export class UserService {
   public delete(id: ID): void {
     this.store.remove(id);
   }
+
+  public clearError(): void {
+    this.store.setError(undefined);
+  }
 }
 
 export const userService = new UserService(userStore);
