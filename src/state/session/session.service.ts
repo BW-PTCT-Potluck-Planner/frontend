@@ -61,6 +61,10 @@ export class SessionService {
   public validateUsername(username: string): boolean {
     return true;
   }
+
+  public clearError(): void {
+    this.store.setError(undefined);
+  }
 }
 
 export const sessionService = new SessionService(sessionStore, sessionQuery);

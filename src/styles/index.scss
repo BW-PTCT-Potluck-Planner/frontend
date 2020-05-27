@@ -19,4 +19,6 @@ a:hover {
 
 #root {
   height: 100vh;
+  display: flex;
+  flex-flow: column;
 }

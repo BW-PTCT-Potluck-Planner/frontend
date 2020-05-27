@@ -1,3 +1,5 @@
+import './Login.scss';
+
 import React from 'react';
 import { Button, Form, FormFeedback, Input, Label } from 'reactstrap';
 import { Link } from 'react-router-dom';
@@ -11,7 +13,7 @@ export const Login = () => {
   const onSubmit = (data) => sessionService.login(data);
 
   return (
-    <main>
+    <main class="login">
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Label for="email">Email</Label>
         <Input
