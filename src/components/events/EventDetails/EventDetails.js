@@ -10,11 +10,11 @@ export const EventDetails = () => {
   const { id } = useParams();
   const [{ active, loading }] = useEventsFacade(id);
 
-  if (loading) return <Spinner color="primary" />;
+  if (!active || loading) return <Spinner color="primary" />;
 
   return (
     <>
-      <h3>{active.title}</h3>
+      <h3>{active.name}</h3>
       <Link to={`/event/${id}/edit`}>
         <Button>Edit</Button>
       </Link>

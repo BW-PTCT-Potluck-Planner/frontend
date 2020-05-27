@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Event } from './Event';
+import { Event } from '../events/Event/Event';
 
 export function EventsAxios() {
   const [events, setEvents] = useState([]);

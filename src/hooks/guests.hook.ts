@@ -30,7 +30,7 @@ export const useGuestFacade = (id: ID): [UserState, (id: ID) => void] => {
     ];
 
     return () => {
-      subscriptions.map((it) => it.unsubscribe());
+      subscriptions.forEach((it) => it.unsubscribe());
     };
   }, [id]);
 

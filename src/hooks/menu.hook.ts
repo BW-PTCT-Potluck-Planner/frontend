@@ -33,7 +33,7 @@ export const useMenuFacade = (
     ];
 
     return () => {
-      subscriptions.map((it) => it.unsubscribe());
+      subscriptions.forEach((it) => it.unsubscribe());
     };
   }, [id]);
 

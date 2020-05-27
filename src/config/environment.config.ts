@@ -1,1 +1,1 @@
-export const api = 'http://placeholder.example/';
+export const api = 'https://evening-sierra-34842.herokuapp.com/';
