@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
 
 import { useSessionFacade } from 'hooks';
 import { NavBar, PublicRoute, PrivateRoute } from 'components/common';
-import { Events, EventDetails, EventEdit } from 'components/events';
+import { EventsAxios, EventDetails, EventEdit } from 'components/events';
 import { Login, Register } from 'components/onboarding';
 
 export const App = () => {
@@ -14,7 +14,7 @@ export const App = () => {
       <Router>
         <NavBar title="Potluck Planner" loggedIn={!!token} />
         <Switch>
-          <PrivateRoute exact path="/" to="/login" component={Events} />
+          <PrivateRoute exact path="/" to="/login" component={EventsAxios} />
           <PrivateRoute exact path="/event/create" to="/login" component={EventEdit} />
           <PrivateRoute exact path="/event/:id" to="/login" component={EventDetails} />
           <PrivateRoute exact path="/event/:id/edit" to="/login" component={EventEdit} />
