@@ -18,6 +18,9 @@ export const EventDetails = () => {
       <Link to={`/event/${id}/edit`}>
         <Button>Edit</Button>
       </Link>
+      <Link to={`/event/${id}/rsvp`}>
+      <Button>RSVP</Button>
+      </Link>
     </>
   );
 };
