@@ -1,7 +1,9 @@
 import './GuestInvite.scss';
-import {Guests} from '../Guests/Guests'
+import { Guests } from '../Guests/Guests';
 import React from 'react';
 import { useGuestFacade } from 'hooks';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
 export const GuestInvite = () => {
   const [{ guests }] = useGuestFacade(0);
@@ -9,8 +11,14 @@ export const GuestInvite = () => {
   return (
     <>
       {guests.map((guest) => (
-       <Guests guest = { guest }/>
+        <Guests guest={guest} />
       ))}
+      <Link>
+        <Button>Add</Button>
+      </Link>
+      <Link>
+        <Button>Remove</Button>
+      </Link>
     </>
   );
 };

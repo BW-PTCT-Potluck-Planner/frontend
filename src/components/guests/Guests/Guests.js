@@ -2,10 +2,13 @@ import './Guests.scss';
 
 import React from 'react';
 
-export const Guests = ({ guest: {id, name } }) => {
+export const Guests = ({ guest: { id, name } }) => {
   return (
     <>
-      <h2>{name}</h2>
+      <h3>
+        <ul>{name}</ul>
+      </h3>
     </>
   );
+
 };
