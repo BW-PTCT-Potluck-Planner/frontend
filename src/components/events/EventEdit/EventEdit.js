@@ -58,7 +58,7 @@ export const EventEdit = () => {
           <FormFeedback>{errors.name?.message}</FormFeedback>
         </FormGroup>
         <FormGroup>
-          <Label for="description">Name</Label>
+          <Label for="description">Description</Label>
           <Input
             id="description"
             name="description"

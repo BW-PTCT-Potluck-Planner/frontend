@@ -1,8 +1,9 @@
 import axios from 'axios-observable';
-import { switchMap, filter } from 'rxjs/operators';
+import { switchMap, filter, tap, map } from 'rxjs/operators';
 
 import { SessionStore, sessionStore } from './session.store';
 import { SessionQuery, sessionQuery } from './session.query';
+import { Observable } from 'rxjs';
 
 interface Authentication {
   username: string;
@@ -44,18 +45,27 @@ export class SessionService {
     this.store.setLoading(false);
   }
 
-  public login(authentication: Authentication): void {
-    console.log(authentication);
-    this.store.update({ token: 'placeholder' });
+  public login(authentication: Authentication): Observable<string> {
+    return axios.post('/users/login', authentication).pipe(
+      map(({ data }) => data.token),
+      tap((token) => {
+        this.store.update({ token });
+      })
+    );
   }
 
   public logout(): void {
     this.store.update({ token: '', id: -1, name: '' });
   }
 
-  public register(registration: Registration): void {
-    console.log(registration);
-    this.store.update({ token: 'new' });
+  public register(registration: Registration): Observable<string> {
+    const { confirmPassword, email, ...user } = registration;
+    return axios.post('/users/register', user).pipe(
+      map(({ data }) => data.token),
+      tap((token) => {
+        this.store.update({ token });
+      })
+    );
   }
 
   public validateUsername(username: string): boolean {

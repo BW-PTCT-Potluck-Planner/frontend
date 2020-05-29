@@ -10,18 +10,18 @@ import { sessionService } from 'state/session';
 export const Login = () => {
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = (data) => sessionService.login(data);
+  const onSubmit = (data) => sessionService.login(data).subscribe();
 
   return (
-    <main class="login">
+    <main className="login">
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Label for="email">Email</Label>
+        <Label for="username">Username</Label>
         <Input
-          id="email"
-          name="email"
-          placeholder="example@gmail.com"
+          id="username"
+          name="username"
+          placeholder="johndoe"
           type="text"
-          innerRef={register({ required: 'Please enter your email' })}
+          innerRef={register({ required: 'Please enter your username' })}
           invalid={!!errors.email}
         />
         <FormFeedback>{errors.email?.message}</FormFeedback>

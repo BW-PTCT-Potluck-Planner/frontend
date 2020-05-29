@@ -10,9 +10,9 @@ export const Register = () => {
   const { register, handleSubmit, getValues, errors } = useForm({ mode: 'onBlur' });
 
   return (
-    <main class="register">
+    <main className="register">
       <h6>Create an account</h6>
-      <Form onSubmit={handleSubmit((user) => sessionService.register(user))}>
+      <Form onSubmit={handleSubmit((user) => sessionService.register(user).subscribe())}>
         <FormGroup>
           <Label for="email">Email</Label>
           <Input
