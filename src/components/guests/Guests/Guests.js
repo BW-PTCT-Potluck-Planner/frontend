@@ -1,23 +1,22 @@
 import './Guests.scss';
-import { Link } from 'react-router-dom';
-import { Button } from 'reactstrap';
+import { Guest } from '../Guest/Guest';
 import React from 'react';
+import { useGuestFacade } from 'hooks';
+import { Button } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-
-  function handleClick(e) {
-    e.preventDefault();
-    console.log('The button was clicked.');
-  }
-export const Guests = ({ guest: { id, name } }) => {
-  
+export const Guests = () => {
+  const id = '0';
+  const [{ guests }] = useGuestFacade(id);
+  console.log(guests);
   return (
     <>
-      <h3>
-        <ul>{name}</ul>
-        <Link>
-          <Button onClick = {handleClick}>Remove</Button>
-        </Link>
-      </h3>
+      {guests.map((guest) => (
+        <Guest key={guest.id} guest={guest} eventID={id} />
+      ))}
+      <Link to={`/event/${id}/invite`}>
+        <Button>Add</Button>
+      </Link>
     </>
   );
 };

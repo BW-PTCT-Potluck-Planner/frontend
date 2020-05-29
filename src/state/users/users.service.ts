@@ -2,6 +2,7 @@ import { ID } from '@datorama/akita';
 
 import { userStore, UserStore } from './users.store';
 import { createUser, User } from './user.model';
+import axios from 'axios-observable';
 
 export class UserService {
   constructor(private readonly store: UserStore) {}
@@ -36,6 +37,10 @@ export class UserService {
 
   public clearError(): void {
     this.store.setError(undefined);
+  }
+
+  public uninviteUser(guestID: ID, eventID: ID): void {
+    axios.delete(`/event/${eventID}/${guestID}`);
   }
 }
 
