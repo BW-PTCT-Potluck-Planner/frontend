@@ -2,7 +2,7 @@ import './EventDetails.scss';
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Spinner, Button, Row, Col, CardSubtitle, CardText, Container } from 'reactstrap';
+import { Spinner, Button, Row, Col, Container } from 'reactstrap';
 
 import { useEventsFacade } from 'hooks';
 
