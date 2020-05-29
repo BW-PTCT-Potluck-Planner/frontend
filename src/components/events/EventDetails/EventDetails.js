@@ -25,10 +25,24 @@ export const EventDetails = () => {
         </Col>
       </Row>
       <Row>
-        <div className="h6 mb-2 text-muted">{active.when}</div>
+        <Link to={`/edit/${id}/menu`}>
+          <Button>See what everyone’s bringing</Button>
+        </Link>
       </Row>
       <Row>
-        <div className="h6 mb-2 text-muted">{active.location}</div>
+        <div className="h6 mt-2 text-muted">When</div>
+      </Row>
+      <Row>
+        <div className="h6 mb-4">{active.when}</div>
+      </Row>
+      <Row>
+        <div className="h6 mb-2 text-muted">Where</div>
+      </Row>
+      <Row>
+        <div className="h6 mb-4">{active.location}</div>
+      </Row>
+      <Row>
+        <div className='h6 text-muted'>Description</div>
       </Row>
       <Row>{active.description}</Row>
     </Container>
