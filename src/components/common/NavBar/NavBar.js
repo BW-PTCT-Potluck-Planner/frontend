@@ -9,9 +9,7 @@ import { sessionService } from 'state';
 export const NavBar = ({ title, loggedIn }) => {
   return (
     <Navbar color="primary">
-      <Link to="/">
-        <NavbarBrand tag="span">{title}</NavbarBrand>
-      </Link>
+      <NavbarBrand href="/">{title}</NavbarBrand>
 
       <div className="spacer"></div>
       {loggedIn && (
