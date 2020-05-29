@@ -2,7 +2,7 @@ import './EventDetails.scss';
 
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Spinner, Button, Card, CardBody, CardTitle, CardSubtitle, CardText } from 'reactstrap';
+import { Spinner, Button, Row, Col, CardSubtitle, CardText, Container } from 'reactstrap';
 
 import { useEventsFacade } from 'hooks';
 
@@ -13,18 +13,24 @@ export const EventDetails = () => {
   if (!active || loading) return <Spinner color="primary" />;
 
   return (
-    <Card>
-      <CardBody>
-        <CardTitle tag="h3">{active.name}</CardTitle>
-      </CardBody>
-      <div>
-        <Link to={`/event/${id}/edit`}>
-          <Button className="mb-3">Edit</Button>
-        </Link>
-      </div>
-      <CardSubtitle className="h6 mb-2 text-muted">{active.when}</CardSubtitle>
-      <CardSubtitle className="h6 mb-2 text-muted">{active.location}</CardSubtitle>
-      <CardText>{active.description}</CardText>
-    </Card>
+    <Container fluid='sm'>
+      <Row style={{ alignItems: 'center' }}>
+        <Col>
+          <h2 className='display-4'>{active.name}</h2>
+        </Col>
+        <Col>
+          <Link to={`/event/${id}/edit`}>
+            <Button>Edit</Button>
+          </Link>
+        </Col>
+      </Row>
+      <Row>
+        <div className="h6 mb-2 text-muted">{active.when}</div>
+      </Row>
+      <Row>
+        <div className="h6 mb-2 text-muted">{active.location}</div>
+      </Row>
+      <Row>{active.description}</Row>
+    </Container>
   );
 };
