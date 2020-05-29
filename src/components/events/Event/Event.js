@@ -6,7 +6,7 @@ import { Button, Card, CardBody, CardTitle, CardSubtitle, CardText } from 'react
 
 export const Event = ({ event: { id, name, description, when, location } }) => {
   return (
-    <Card style={{ maxWidth: '80ch' }}>
+    <Card>
       <CardBody>
         <CardTitle tag="h5">{name}</CardTitle>
         <CardSubtitle className="h6 mb-2 text-muted">{when}</CardSubtitle>
