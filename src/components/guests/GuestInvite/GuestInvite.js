@@ -16,9 +16,6 @@ export const GuestInvite = () => {
       <Link>
         <Button>Add</Button>
       </Link>
-      <Link>
-        <Button>Remove</Button>
-      </Link>
     </>
   );
 };
