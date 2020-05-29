@@ -1,7 +1,7 @@
 import './Login.scss';
 
 import React from 'react';
-import { Button, Form, FormFeedback, Input, Label } from 'reactstrap';
+import { Button, Form, FormFeedback, Input, Label, FormGroup } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
@@ -15,27 +15,30 @@ export const Login = () => {
   return (
     <main className="login">
       <Form onSubmit={handleSubmit(onSubmit)}>
-        <Label for="username">Username</Label>
-        <Input
-          id="username"
-          name="username"
-          placeholder="johndoe"
-          type="text"
-          innerRef={register({ required: 'Please enter your username' })}
-          invalid={!!errors.email}
-        />
-        <FormFeedback>{errors.email?.message}</FormFeedback>
-
-        <Label for="password">Password</Label>
-        <Input
-          id="password"
-          name="password"
-          placeholder="Password"
-          type="password"
-          innerRef={register({ required: 'Please enter your password' })}
-          invalid={!!errors.password}
-        />
-        <FormFeedback>{errors.password?.message}</FormFeedback>
+        <FormGroup>
+          <Label for="username">Username</Label>
+          <Input
+            id="username"
+            name="username"
+            placeholder="johndoe"
+            type="text"
+            innerRef={register({ required: 'Please enter your username' })}
+            invalid={!!errors.email}
+          />
+          <FormFeedback>{errors.email?.message}</FormFeedback>
+        </FormGroup>
+        <FormGroup>
+          <Label for="password">Password</Label>
+          <Input
+            id="password"
+            name="password"
+            placeholder="Password"
+            type="password"
+            innerRef={register({ required: 'Please enter your password' })}
+            invalid={!!errors.password}
+          />
+          <FormFeedback>{errors.password?.message}</FormFeedback>
+        </FormGroup>
 
         <Button>Login</Button>
         <div>
