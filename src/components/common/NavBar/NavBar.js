@@ -1,7 +1,7 @@
 import './NavBar.scss';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { Navbar, NavbarBrand, Button, Form } from 'reactstrap';
 
 import { sessionService } from 'state';
